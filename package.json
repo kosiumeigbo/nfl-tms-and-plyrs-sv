@@ -8,6 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "svelte-kit sync || echo ''",
+    "prepare:husky": "husky",
+    "commitlint": "commitlint --edit",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "format": "prettier --write .",
@@ -16,6 +18,8 @@
     "test": "pnpm run test:unit -- --run"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@eslint/compat": "^1.2.5",
     "@eslint/js": "^9.18.0",
     "@sveltejs/adapter-auto": "^6.0.0",
@@ -28,6 +32,7 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-svelte": "^3.0.0",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "prettier": "^3.4.2",
     "prettier-plugin-svelte": "^3.3.3",
