@@ -1,10 +1,10 @@
-import { render, screen } from "@testing-library/svelte";
-import Page from "./+page.svelte";
+import { render, screen } from "@testing-library/svelte/svelte5";
+import Home from "./home.svelte";
 
-describe("/+page.svelte", () => {
+describe("/home.svelte", () => {
   test("should render h1", () => {
     console.log("ENVIRONMENT:", typeof window);
-    render(Page);
+    render(Home);
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
   });
 });
