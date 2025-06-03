@@ -6,6 +6,8 @@ import globals from "globals";
 import { fileURLToPath } from "node:url";
 import ts from "typescript-eslint";
 import svelteConfig from "./svelte.config.js";
+import eslint from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
 
 const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url));
 
@@ -23,6 +25,10 @@ export default ts.config(
     rules: { "no-undef": "off" },
   },
   {
+    ...vitest.configs.recommended,
+    files: ["**/*.{test,spec}.ts"],
+  },
+  {
     files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
     languageOptions: {
       parserOptions: {
@@ -31,6 +37,39 @@ export default ts.config(
         parser: ts.parser,
         svelteConfig,
       },
+    },
+  },
+  {
+    files: ["**/*.ts"],
+    extends: [eslint.configs.recommended, ts.configs.strictTypeChecked, ts.configs.stylisticTypeChecked],
+    ignores: [
+      "commitlint.config.js",
+      ".prettierrc",
+      "svelte.config.js",
+      "**/.svelte-kit/**/*.ts",
+      "node_modules/",
+      "**/*.svelte",
+      "**/*.svelte.ts",
+      "**/*.svelte.js",
+    ],
+    plugins: { "@typescript-eslint": ts.plugin },
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: { project: "./tsconfig.json" },
+    },
+    rules: {
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
+      "@typescript-eslint/no-confusing-void-expression": [
+        "error",
+        {
+          "ignoreArrowShorthand": true,
+        },
+      ],
+      "@typescript-eslint/no-unnecessary-condition": "off",
+      "@typescript-eslint/only-throw-error": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
     },
   },
 );
