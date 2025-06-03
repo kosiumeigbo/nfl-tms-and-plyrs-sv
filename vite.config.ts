@@ -14,15 +14,29 @@ export default defineConfig({
     : undefined,
   test: {
     clearMocks: true,
-    include: ["src/**/*.{test,spec}.{js,ts}"],
-    environmentMatchGlobs: [
-      ["src/**/*.svelte.{test,spec}.{js,ts}", "jsdom"],
-      ["src/**/*.{!svelte}.{test,spec}.{js,ts}", "node"],
-    ],
-    setupFiles: ["./vitest.setup.ts"],
     globals: true,
     css: true,
     printConsoleTrace: true,
-    // projects: [{ test: {} }],
+    projects: [
+      {
+        extends: true,
+        test: {
+          name: "client",
+          environment: "jsdom",
+          include: ["src/**/*.svelte.{test,spec}.{js,ts}"],
+          setupFiles: ["./vitest-setup-client.ts"],
+        },
+      },
+      {
+        extends: true,
+        test: {
+          name: "server",
+          environment: "node",
+          include: ["src/**/*.{test,spec}.{js,ts}"],
+          exclude: ["src/**/*.svelte.{test,spec}.{js,ts}"],
+          // setupFiles: ["./vitest-setup-server.ts"],
+        },
+      },
+    ],
   },
 });
