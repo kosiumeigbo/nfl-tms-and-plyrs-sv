@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/svelte/svelte5";
-import Home from "./home.svelte";
+import Home from "./Home.svelte";
 
 describe("/home.svelte", () => {
   test("should render h1", () => {
