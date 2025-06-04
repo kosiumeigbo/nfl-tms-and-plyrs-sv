@@ -1,1 +1,1 @@
-export * from "./Home.svelte";
+export * from "./home.svelte";
