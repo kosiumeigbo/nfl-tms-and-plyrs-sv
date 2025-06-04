@@ -26,7 +26,7 @@ export default ts.config(
   },
   {
     ...vitest.configs.recommended,
-    files: ["**/*.{test,spec}.ts"],
+    files: ["**/*.{test,spec}.ts", "./vitest-setup-client.ts", "./vitest-setup-server.ts"],
   },
   {
     files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
@@ -51,10 +51,12 @@ export default ts.config(
       "**/*.svelte",
       "**/*.svelte.ts",
       "**/*.svelte.js",
+      "./vitest-setup-client.ts",
+      "./vitest-setup-server.ts",
     ],
     plugins: { "@typescript-eslint": ts.plugin },
     languageOptions: {
-      parser: tseslint.parser,
+      parser: ts.parser,
       parserOptions: { project: "./tsconfig.json" },
     },
     rules: {
