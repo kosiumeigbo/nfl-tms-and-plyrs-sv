@@ -1,24 +1,12 @@
 <script lang="ts">
   import landingPageVideo from "$lib/assets/home.mp4";
   import { setHeaderTabState } from "./home-page.svelte";
+
   const infoForButtons: { buttonText: string; stateValue: "teams" | "players" }[] = [
     { buttonText: "Explore Teams", stateValue: "teams" },
     { buttonText: "Search Players", stateValue: "players" },
   ];
 </script>
-
-<!-- <section class="w-full">
-  <video autoplay loop muted>
-    <source src={landingPageVideo} type="video/mp4" />
-  </video>
-  <div class="overlay-container"></div>
-  <div class="header-container">
-    <div class="stats-data-buttons">
-      <button type="button" class="team-stats-data-btn">Explore Teams</button>
-      <button type="button" class="player-stats-data-btn">Search Players</button>
-    </div>
-  </div>
-</section> -->
 
 <section class="relative flex h-svh w-full items-center justify-center">
   <video autoplay loop muted class="absolute top-0 left-0 -z-20 mx-auto h-full w-full object-cover">
