@@ -15,10 +15,16 @@
   <div class="absolute top-0 left-0 -z-10 h-full w-full bg-fuchsia-50 opacity-70"></div>
   <div class="mx-auto flex h-full w-[95%] max-w-[1440px] items-center justify-center">
     <div
-      class="stats-data-buttons font-georgia flex h-1/2 w-full flex-col items-center justify-between bg-transparent md:flex-row"
+      class="font-display flex h-1/2 w-full flex-col items-center justify-between bg-transparent font-normal md:flex-row"
     >
       {#each infoForButtons as { buttonText, stateValue }, i (i)}
-        <button type="button" class="bg-white" onclick={() => setHeaderTabState(stateValue)}>{buttonText}</button>
+        <button
+          type="button"
+          class="border-4 border-black bg-white px-8 py-8 text-3xl font-normal text-black uppercase"
+          onclick={() => setHeaderTabState(stateValue)}
+        >
+          {buttonText}
+        </button>
       {/each}
     </div>
   </div>
