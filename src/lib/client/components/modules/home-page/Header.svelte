@@ -20,7 +20,7 @@
       {#each infoForButtons as { buttonText, stateValue }, i (i)}
         <button
           type="button"
-          class="border-4 border-black bg-white px-8 py-8 text-3xl font-normal text-black uppercase"
+          class="hover:from-nfc hover:to-afc cursor-pointer border-4 border-black bg-white px-8 py-8 text-3xl font-normal text-black uppercase hover:bg-linear-to-r hover:text-white"
           onclick={() => setHeaderTabState(stateValue)}
         >
           {buttonText}
