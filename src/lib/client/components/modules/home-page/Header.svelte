@@ -2,9 +2,9 @@
   import landingPageVideo from "$lib/assets/home.mp4";
   import { setHeaderTabState } from "./home-page.svelte";
 
-  const infoForButtons: { buttonText: string; stateValue: "teams" | "players" }[] = [
-    { buttonText: "Explore Teams", stateValue: "teams" },
-    { buttonText: "Search Players", stateValue: "players" },
+  const infoForButtons: { buttonText: string; statusValue: "teams" | "players" }[] = [
+    { buttonText: "Explore Teams", statusValue: "teams" },
+    { buttonText: "Search Players", statusValue: "players" },
   ];
 </script>
 
@@ -17,11 +17,11 @@
     <div
       class="font-display flex h-1/2 w-full flex-col items-center justify-between bg-transparent font-normal md:flex-row"
     >
-      {#each infoForButtons as { buttonText, stateValue }, i (i)}
+      {#each infoForButtons as { buttonText, statusValue }, i (i)}
         <button
           type="button"
           class="hover:from-nfc hover:to-afc cursor-pointer border-4 border-black bg-white px-8 py-8 text-3xl font-normal text-black uppercase hover:bg-linear-to-r hover:text-white"
-          onclick={() => setHeaderTabState(stateValue)}
+          onclick={() => setHeaderTabState(statusValue)}
         >
           {buttonText}
         </button>
