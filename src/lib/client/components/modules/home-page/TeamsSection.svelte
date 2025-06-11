@@ -1,11 +1,13 @@
 <script lang="ts">
-  import type { Attachment } from "svelte/attachments";
+  import { effectFunction } from "./home-page.svelte";
 
   type Conference = "NFC" | "AFC";
 
-  const teamsSectionAttachment: Attachment = function (node) {
-    node.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  let section: HTMLElement | undefined = undefined;
+
+  $effect(() => {
+    return effectFunction({ node: section, sectionStatus: "teams" });
+  });
 
   const divisions = ["North", "South", "East", "West"] as const;
 
@@ -23,6 +25,8 @@
       East: ["BUF", "MIA", "NE", "NYJ"],
     },
   } as const;
+
+  // let props: { isNotDisplayed: boolean } = $props();
 </script>
 
 {#snippet conferenceTable({ conference }: { conference: Conference })}
@@ -35,7 +39,7 @@
   {/each}
 {/snippet}
 
-<section {@attach teamsSectionAttachment}>
+<section bind:this={section}>
   {@render conferenceTable({ conference: "NFC" })}
   <hr />
   {@render conferenceTable({ conference: "AFC" })}
