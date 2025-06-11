@@ -1,6 +1,6 @@
 <script lang="ts">
   import landingPageVideo from "$lib/assets/home.mp4";
-  import { setHeaderTabState } from "./home-page.svelte";
+  import { setHeaderTabState, setButtonPressedCount } from "./home-page.svelte";
 
   const infoForButtons: { buttonText: string; statusValue: "teams" | "players" }[] = [
     { buttonText: "Explore Teams", statusValue: "teams" },
@@ -21,7 +21,10 @@
         <button
           type="button"
           class="hover:from-nfc hover:to-afc cursor-pointer border-4 border-black bg-white px-8 py-8 text-3xl font-normal text-black uppercase hover:bg-linear-to-r hover:text-white"
-          onclick={() => setHeaderTabState(statusValue)}
+          onclick={() => {
+            setButtonPressedCount();
+            setHeaderTabState(statusValue);
+          }}
         >
           {buttonText}
         </button>
