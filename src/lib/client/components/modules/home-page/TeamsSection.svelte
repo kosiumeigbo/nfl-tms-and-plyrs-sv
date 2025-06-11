@@ -5,9 +5,7 @@
 
   let section: HTMLElement | undefined = undefined;
 
-  $effect(() => {
-    return effectFunction({ node: section, sectionStatus: "teams" });
-  });
+  $effect(() => effectFunction({ node: section, sectionStatus: "teams" }));
 
   const divisions = ["North", "South", "East", "West"] as const;
 
