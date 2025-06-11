@@ -6,8 +6,5 @@
 
 <Header />
 
-{#if getHeaderTabState()?.status === "teams"}
-  <TeamsSection />
-{:else if getHeaderTabState()?.status === "players"}
-  <div>Players</div>
-{/if}
+<TeamsSection isNotDisplayed={getHeaderTabState() === null || getHeaderTabState() !== "teams"} />
+<div class={{ "hidden": getHeaderTabState() === null || getHeaderTabState() !== "players" }}>Players</div>

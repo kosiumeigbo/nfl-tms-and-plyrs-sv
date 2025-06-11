@@ -26,7 +26,7 @@
     },
   } as const;
 
-  // let props: { isNotDisplayed: boolean } = $props();
+  let { isNotDisplayed }: { isNotDisplayed: boolean } = $props();
 </script>
 
 {#snippet conferenceTable({ conference }: { conference: Conference })}
@@ -39,7 +39,7 @@
   {/each}
 {/snippet}
 
-<section bind:this={section}>
+<section bind:this={section} class={{ "hidden": isNotDisplayed, "block": !isNotDisplayed }}>
   {@render conferenceTable({ conference: "NFC" })}
   <hr />
   {@render conferenceTable({ conference: "AFC" })}
