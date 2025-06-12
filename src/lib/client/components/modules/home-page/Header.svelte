@@ -13,9 +13,9 @@
     <source src={landingPageVideo} type="video/mp4" />
   </video>
   <div class="absolute top-0 left-0 -z-10 h-full w-full bg-fuchsia-50 opacity-70"></div>
-  <div class="mx-auto flex h-full w-[95%] max-w-[1440px] items-center justify-center">
+  <div class="custom-container">
     <div
-      class="font-display flex h-1/2 w-full flex-col items-center justify-between bg-transparent font-normal md:flex-row"
+      class="font-display flex h-full w-full flex-col items-center justify-center gap-y-28 bg-transparent font-normal md:flex-row md:justify-between md:gap-y-0"
     >
       {#each infoForButtons as { buttonText, statusValue }, i (i)}
         <button

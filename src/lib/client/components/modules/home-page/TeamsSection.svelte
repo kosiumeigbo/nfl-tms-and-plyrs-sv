@@ -1,44 +1,33 @@
 <script lang="ts">
   import { effectFunction } from "./home-page.svelte";
+  import type { Team } from "$lib/types";
+  import { getConferences, getDivisionTeams, getDivisions } from "$lib/utils";
 
-  type Conference = "NFC" | "AFC";
-
+  let { isNotDisplayed, teamsArray }: { isNotDisplayed: boolean; teamsArray: Team[] } = $props();
   let section: HTMLElement | undefined = undefined;
-
   $effect(() => effectFunction({ node: section, sectionStatus: "teams" }));
 
-  const divisions = ["North", "South", "East", "West"] as const;
+  const conferences = getConferences(teamsArray);
+  const divisions = getDivisions(teamsArray);
 
-  const allTeams = {
-    NFC: {
-      North: ["CHI", "DET", "GB", "MIN"],
-      South: ["ATL", "CAR", "NO", "TB"],
-      West: ["ARI", "LAR", "SEA", "SF"],
-      East: ["DAL", "NYG", "PHI", "WAS"],
-    },
-    AFC: {
-      North: ["BAL", "CIN", "CLE", "PIT"],
-      South: ["HOU", "IND", "JAX", "TEN"],
-      West: ["DEN", "KC", "LAC", "LV"],
-      East: ["BUF", "MIA", "NE", "NYJ"],
-    },
-  } as const;
-
-  let { isNotDisplayed }: { isNotDisplayed: boolean } = $props();
+  console.log(teamsArray);
 </script>
 
-{#snippet conferenceTable({ conference }: { conference: Conference })}
+{#snippet conferenceTable({ conference }: { conference: string })}
   <img src={`/logos/${conference}/main.png`} alt={`${conference} Logo`} />
   {#each divisions as division, i (i)}
-    <div>{division}</div>
-    {#each allTeams[conference][division] as team, i (i)}
-      <img src={`/logos/${conference}/${division}/${team}.svg`} alt={`Logo for ${team}`} />
-    {/each}
+    <div class="grid grid-cols-5">
+      <div class="text-2xl">{division}</div>
+      {#each getDivisionTeams(conference, division, teamsArray) as team, i (i)}
+        <div><img src={`/logos/${conference}/${division}/${team.Key}.svg`} alt={`Logo for ${team.FullName}`} /></div>
+        <div><img src={team.WikipediaLogoUrl} alt={`Logo for ${team.FullName}`} /></div>
+      {/each}
+    </div>
   {/each}
 {/snippet}
 
 <section bind:this={section} class={{ "hidden": isNotDisplayed, "block": !isNotDisplayed }}>
-  {@render conferenceTable({ conference: "NFC" })}
-  <hr />
-  {@render conferenceTable({ conference: "AFC" })}
+  {#each conferences as conference, i (i)}
+    {@render conferenceTable({ conference })}
+  {/each}
 </section>
