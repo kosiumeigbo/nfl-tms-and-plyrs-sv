@@ -1,2 +1,12 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  import Header from "./Header.svelte";
+  import TeamsSection from "./TeamsSection.svelte";
+  import PlayersSection from "./PlayersSection.svelte";
+  import { getHeaderTabState } from "./home-page.svelte";
+  import type { Team } from "@root/src/lib/types";
+  let { teamsArray }: { teamsArray: Team[] } = $props();
+</script>
+
+<Header />
+<TeamsSection isNotDisplayed={getHeaderTabState() === null || getHeaderTabState() !== "teams"} {teamsArray} />
+<PlayersSection isNotDisplayed={getHeaderTabState() === null || getHeaderTabState() !== "players"} />

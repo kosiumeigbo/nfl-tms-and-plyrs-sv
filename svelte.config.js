@@ -15,6 +15,7 @@ const config = {
     alias: {
       "@client/*": "./src/lib/client/*",
       "@server/*": "./src/lib/server/*",
+      "@root/*": "./*",
     },
   },
 };

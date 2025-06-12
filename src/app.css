@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: DM-Display;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/fonts/DMSerifDisplay-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: DM-Display;
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/fonts/DMSerifDisplay-Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/georgia.woff") format("woff");
+}
+
+@font-face {
+  font-family: Georgia;
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/georgiai.woff") format("woff");
+}
+
+@font-face {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/georgiab.woff") format("woff");
+}
+
+@font-face {
+  font-family: Georgia;
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/georgiaz.woff") format("woff");
+}
+
+@theme {
+  --breakpoint-xs: 420px;
+  --font-display: DM-Display, sans-serif, serif;
+  --font-georgia: Georgia, "Times New Roman", Times, serif;
+  --color-nfc: #003069;
+  --color-afc: #d60303;
+}
+
+.custom-container {
+  @apply xs:px-2.5 mx-auto h-full w-full max-w-screen-2xl px-2 sm:px-3 md:px-4 lg:px-5 xl:px-6;
+}
