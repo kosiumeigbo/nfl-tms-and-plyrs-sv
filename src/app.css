@@ -45,8 +45,13 @@
 }
 
 @theme {
+  --breakpoint-xs: 420px;
   --font-display: DM-Display, sans-serif, serif;
   --font-georgia: Georgia, "Times New Roman", Times, serif;
   --color-nfc: #003069;
   --color-afc: #d60303;
+}
+
+.custom-container {
+  @apply xs:px-2.5 mx-auto h-full w-full max-w-screen-2xl px-2 sm:px-3 md:px-4 lg:px-5 xl:px-6;
 }
