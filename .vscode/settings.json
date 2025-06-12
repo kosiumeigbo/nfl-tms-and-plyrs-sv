@@ -7,7 +7,7 @@
     ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
   "workbench.editor.customLabels.patterns": {
-    "**/src/routes/**/*.svelte": "${dirname} - ${filename}"
+    "**/src/routes/**/*.svelte": "${dirname} => ${filename}"
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }
