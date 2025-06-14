@@ -5,6 +5,6 @@ describe("/+page.svelte", () => {
   test("should render h1", () => {
     console.log("ENVIRONMENT:", typeof window);
     render(Page);
-    expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /explore teams/i })).toBeInTheDocument();
   });
 });
