@@ -1,1 +1,6 @@
-<h1>Team babyyyy</h1>
+<script lang="ts">
+  import type { PageProps } from "./$types";
+  let { data }: PageProps = $props();
+</script>
+
+<div>{data.params.key}</div>
