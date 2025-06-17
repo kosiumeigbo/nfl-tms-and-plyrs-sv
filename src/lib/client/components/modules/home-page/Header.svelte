@@ -15,7 +15,7 @@
   <div class="absolute top-0 left-0 -z-10 h-full w-full bg-fuchsia-50 opacity-70"></div>
   <div class="custom-container">
     <div
-      class="font-display flex h-full w-full flex-col items-center justify-center gap-y-28 bg-transparent font-normal md:flex-row md:justify-between md:gap-y-0"
+      class="font-display flex h-full w-full flex-col items-center justify-between gap-y-6 bg-transparent font-normal md:flex-row md:justify-between md:gap-y-0"
     >
       {#each infoForButtons as { buttonText, statusValue }, i (i)}
         <button
