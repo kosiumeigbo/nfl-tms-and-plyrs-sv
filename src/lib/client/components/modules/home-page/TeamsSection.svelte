@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { effectFunction } from "./home-page.svelte";
+  import { effectFunction, getConferences, getDivisionTeams, getDivisions } from "./home-page.svelte";
   import type { Team } from "$lib/types";
-  import { getConferences, getDivisionTeams, getDivisions } from "$lib/utils";
 
   let { isNotDisplayed, teamsArray }: { isNotDisplayed: boolean; teamsArray: Team[] } = $props();
   let section: HTMLElement | undefined = undefined;
