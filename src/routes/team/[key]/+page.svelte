@@ -3,4 +3,4 @@
   let { data }: PageProps = $props();
 </script>
 
-<div>{data.params.key}</div>
+<div>{data.teamObj?.City}</div>
