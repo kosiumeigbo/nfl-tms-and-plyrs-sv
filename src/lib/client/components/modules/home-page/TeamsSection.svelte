@@ -8,8 +8,6 @@
 
   const conferences = getConferences(teamsArray);
   const divisions = getDivisions(teamsArray);
-
-  console.log(teamsArray);
 </script>
 
 {#snippet conferenceTable({ conference }: { conference: string })}
