@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import { getContext, setContext } from "svelte";
 import type { Team } from "./types";
-
-const ALL_TEAMS_ARRAY_CONTEXT_KEY = "allTeamsArray";
+import { ALL_TEAMS_ARRAY_CONTEXT_KEY } from "./constants";
 
 export const setAllTeamsArrayContext = function (allTeamsArr: Team[]) {
   setContext(ALL_TEAMS_ARRAY_CONTEXT_KEY, allTeamsArr);
