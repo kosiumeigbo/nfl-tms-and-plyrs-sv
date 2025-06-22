@@ -1,10 +1,9 @@
-import { getAllTeamsArrayContext } from "$lib/context";
+import { getAllTeamsFromSportsdataIOAPI } from "$lib/server";
 import type { PageServerLoad } from "./$types";
-// import type { Team } from "$lib/types";
-// import { SPORTSDATA_API_KEY } from "$env/static/private";
 
-export const load: PageServerLoad = function ({ params }) {
-  const allTeamsArray = getAllTeamsArrayContext();
+export const load: PageServerLoad = async function ({ params, setHeaders }) {
+  const allTeamsArray = await getAllTeamsFromSportsdataIOAPI();
   const teamObj = allTeamsArray.find((tm) => tm.Key === params.key);
+  setHeaders({ "cache-control": "private, max-age=604800" });
   return { teamObj };
 };
