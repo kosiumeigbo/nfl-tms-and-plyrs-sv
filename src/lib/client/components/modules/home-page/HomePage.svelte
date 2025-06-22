@@ -3,10 +3,8 @@
   import TeamsSection from "./TeamsSection.svelte";
   import PlayersSection from "./PlayersSection.svelte";
   import { getHeaderTabState } from "./home-page.svelte";
-  import type { Team } from "@root/src/lib/types";
-  let { teamsArray }: { teamsArray: Team[] } = $props();
 </script>
 
 <Header />
-<TeamsSection isNotDisplayed={getHeaderTabState() === null || getHeaderTabState() !== "teams"} {teamsArray} />
+<TeamsSection isNotDisplayed={getHeaderTabState() === null || getHeaderTabState() !== "teams"} />
 <PlayersSection isNotDisplayed={getHeaderTabState() === null || getHeaderTabState() !== "players"} />

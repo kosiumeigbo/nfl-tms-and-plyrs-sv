@@ -1,8 +1,9 @@
 <script lang="ts">
   import { effectFunction, getConferences, getDivisionTeams, getDivisions } from "./home-page.svelte";
-  import type { Team } from "$lib/types";
+  import { getAllTeamsArrayContext } from "$lib/context";
 
-  let { isNotDisplayed, teamsArray }: { isNotDisplayed: boolean; teamsArray: Team[] } = $props();
+  let { isNotDisplayed }: { isNotDisplayed: boolean } = $props();
+  const teamsArray = getAllTeamsArrayContext();
   let section: HTMLElement | undefined = undefined;
   $effect(() => effectFunction({ node: section, sectionStatus: "teams" }));
 
