@@ -11,7 +11,10 @@
   let searchInputValue = $state(getInitialPlayerSearchInputValue());
 </script>
 
-<section bind:this={section} class={{ "hidden": isNotDisplayed, "block": !isNotDisplayed, "font-georgia py-10": true }}>
+<section
+  bind:this={section}
+  class={{ "hidden": isNotDisplayed, "block": !isNotDisplayed, "font-georgia min-h-svh py-10": true }}
+>
   <div class="custom-container">
     <div class="flex justify-center">
       <form>
