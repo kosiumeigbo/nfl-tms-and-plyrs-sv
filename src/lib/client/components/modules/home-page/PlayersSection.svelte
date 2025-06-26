@@ -9,6 +9,7 @@
   let { isNotDisplayed }: { isNotDisplayed: boolean } = $props();
 
   let searchInputValue = $state(getInitialPlayerSearchInputValue());
+  let result = $state(0);
 </script>
 
 <section
@@ -17,7 +18,13 @@
 >
   <div class="custom-container">
     <div class="flex justify-center">
-      <form>
+      <form
+        onsubmit={(e) => {
+          e.preventDefault();
+          console.log(e);
+          result += 1;
+        }}
+      >
         <label class="mb-5 flex flex-col">
           <span class="xs:text-xl mb-1 text-lg md:text-3xl">Enter part or full player name (First or Last):</span>
           <div class="w-full max-w-96">
@@ -37,5 +44,6 @@
         </button>
       </form>
     </div>
+    {result}
   </div>
 </section>
