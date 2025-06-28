@@ -22,7 +22,7 @@
         onsubmit={(e) => {
           e.preventDefault();
           console.log(e);
-          result += 1;
+          result += 2;
         }}
       >
         <label class="mb-5 flex flex-col">
