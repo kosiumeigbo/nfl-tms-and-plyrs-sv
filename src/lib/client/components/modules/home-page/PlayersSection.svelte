@@ -9,7 +9,7 @@
   let { isNotDisplayed }: { isNotDisplayed: boolean } = $props();
 
   let searchInputValue = $state(getInitialPlayerSearchInputValue());
-  let result = $state(0);
+  let result: number[] = $state([]);
 </script>
 
 <section
@@ -22,7 +22,7 @@
         onsubmit={(e) => {
           e.preventDefault();
           console.log(e);
-          result += 2;
+          result.push(1);
         }}
       >
         <label class="mb-5 flex flex-col">
@@ -44,6 +44,6 @@
         </button>
       </form>
     </div>
-    {result}
+    {JSON.stringify(result)}
   </div>
 </section>
