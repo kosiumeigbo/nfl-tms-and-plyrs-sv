@@ -56,3 +56,33 @@ type StadiumDetails = {
   GeoLong: number;
   Type: string;
 };
+
+export type Player = {
+  PlayerID: number;
+  Team: string | null;
+  Number: number | null;
+  FirstName: string;
+  LastName: string;
+  Position: string;
+  Status: string;
+  Height: string;
+  Weight: number;
+  BirthDate: string;
+  College: string;
+  Experience: number;
+  FantasyPosition: string;
+  Active: boolean;
+  PositionCategory: string;
+  Name: string;
+  Age: number;
+  ShortName: string;
+  HeightFeet: number;
+  HeightInches: number;
+  TeamID: number | null;
+  GlobalTeamID: number;
+  UsaTodayPlayerID: number;
+  UsaTodayHeadshotUrl: string;
+  UsaTodayHeadshotNoBackgroundUrl: string;
+  UsaTodayHeadshotUpdated: string;
+  UsaTodayHeadshotNoBackgroundUpdated: string;
+};
