@@ -86,3 +86,7 @@ export type Player = {
   UsaTodayHeadshotUpdated: string;
   UsaTodayHeadshotNoBackgroundUpdated: string;
 };
+
+export type APIResponse<T = NonNullable<unknown>> =
+  | { success: true; data: T }
+  | { success: false; error: string; status: number };
