@@ -1,6 +1,11 @@
 <script lang="ts">
   import { effectFunction } from "./home-page.svelte";
-  import { getInitialPlayerSearchInputValue } from "$lib/context";
+  import {
+    getInitialPlayerSearchInputValue,
+    setInitialPlayerSearchInputValue,
+  } from "@client/components/modules/home-page/home-page.svelte";
+  import type { Player, APIResponse } from "$lib/types";
+  import type { Attachment } from "svelte/attachments";
 
   let section: HTMLElement | undefined = undefined;
 
@@ -8,21 +13,39 @@
 
   let { isNotDisplayed }: { isNotDisplayed: boolean } = $props();
 
-  let searchInputValue = $state(getInitialPlayerSearchInputValue());
-  let result: number[] = $state([]);
+  let searchInputValue: string = $state("");
+  let result: null | Promise<Player[]> = $state(null);
+
+  const myAttachment: Attachment = function () {
+    searchInputValue = getInitialPlayerSearchInputValue();
+  };
+
+  const onSubmit = async function (
+    e: SubmitEvent & {
+      currentTarget: EventTarget & HTMLFormElement;
+    },
+  ) {
+    e.preventDefault();
+    const res = await fetch(`/api/players?search=${searchInputValue}`);
+    const data = (await res.json()) as APIResponse<Player[]>;
+    if (!data.success) {
+      throw new Error(data.error);
+    }
+    return data.data;
+  };
 </script>
 
 <section
   bind:this={section}
   class={{ "hidden": isNotDisplayed, "block": !isNotDisplayed, "font-georgia min-h-svh py-10": true }}
+  {@attach myAttachment}
 >
   <div class="custom-container">
     <div class="flex justify-center">
       <form
         onsubmit={(e) => {
-          e.preventDefault();
-          console.log(e);
-          result.push(1);
+          setInitialPlayerSearchInputValue(searchInputValue);
+          result = onSubmit(e);
         }}
       >
         <label class="mb-5 flex flex-col">
@@ -44,6 +67,16 @@
         </button>
       </form>
     </div>
-    {JSON.stringify(result)}
+    {#if result !== null}
+      {#await result}
+        <p>Loading...</p>
+      {:then results}
+        {JSON.stringify(results)}
+      {:catch error}
+        <p>{(error as Error).message}</p>
+      {/await}
+    {:else}
+      <p>Click the submit button</p>
+    {/if}
   </div>
 </section>
