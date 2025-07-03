@@ -1,4 +1,6 @@
 import type { Team } from "$lib/types";
+import { INITIAL_PLAYER_SEARCH_INPUT_CONTEXT_KEY } from "$lib/constants";
+
 type HeaderTabStatus = "teams" | "players";
 type HeaderTabState = null | HeaderTabStatus;
 
@@ -53,4 +55,14 @@ export const getDivisions = function (teamsArray: Team[]) {
 
 export const getDivisionTeams = function (conference: string, division: string, teamsArray: Team[]) {
   return teamsArray.filter((team) => team.Conference === conference && team.Division === division);
+};
+
+export const setInitialPlayerSearchInputValue = function (val: string) {
+  window.localStorage.setItem(INITIAL_PLAYER_SEARCH_INPUT_CONTEXT_KEY, val);
+};
+
+export const getInitialPlayerSearchInputValue = function () {
+  const initialPlayerSearchInputValue = window.localStorage.getItem(INITIAL_PLAYER_SEARCH_INPUT_CONTEXT_KEY);
+  if (!initialPlayerSearchInputValue) return "";
+  return initialPlayerSearchInputValue;
 };
