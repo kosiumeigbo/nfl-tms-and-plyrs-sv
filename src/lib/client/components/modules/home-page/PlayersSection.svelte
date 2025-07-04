@@ -26,7 +26,7 @@
     },
   ) {
     e.preventDefault();
-    const res = await fetch(`/api/players?search=${searchInputValue}`);
+    const res = await fetch(`/api/players?search=${searchInputValue.trim()}`);
     const data = (await res.json()) as APIResponse<Player[]>;
     if (!data.success) {
       throw new Error(data.error);
@@ -71,7 +71,9 @@
       {#await result}
         <p>Loading...</p>
       {:then results}
-        {JSON.stringify(results)}
+        {#each results as player (player.PlayerID)}
+          <p>{player.Name}</p>
+        {/each}
       {:catch error}
         <p>{(error as Error).message}</p>
       {/await}
