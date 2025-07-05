@@ -10,8 +10,14 @@ export const GET: RequestHandler = async ({ url, setHeaders }) => {
     return json(responseData);
   }
   const allPlayers = await getAllAvailablePlayersFromSportsdataIOAPI();
-  console.log(searchInput.split(""));
+  const searchedPlayers = allPlayers.filter((player) => player.Name.toLowerCase().includes(searchInput.toLowerCase()));
   setHeaders({ "cache-control": "private, max-age=604800" });
-  const responseData: APIResponse<Player[]> = { success: true, data: allPlayers };
+
+  if (searchedPlayers.length === 0) {
+    const responseData: APIResponse = { success: false, error: "No player found with that search input", status: 400 };
+    return json(responseData);
+  }
+
+  const responseData: APIResponse<Player[]> = { success: true, data: searchedPlayers };
   return json(responseData);
 };
