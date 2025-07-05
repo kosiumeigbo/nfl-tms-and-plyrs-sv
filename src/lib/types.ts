@@ -1,0 +1,92 @@
+export type Team = {
+  Key: string;
+  TeamID: number;
+  PlayerID: number;
+  City: string;
+  Name: string;
+  Conference: string;
+  Division: string;
+  FullName: string;
+  StadiumID: number;
+  ByeWeek: number;
+  AverageDraftPosition: number;
+  AverageDraftPositionPPR: number;
+  HeadCoach: string;
+  OffensiveCoordinator: string;
+  DefensiveCoordinator: string;
+  SpecialTeamsCoach: string;
+  OffensiveScheme: string;
+  DefensiveScheme: string;
+  UpcomingSalary: number;
+  UpcomingOpponent: string;
+  UpcomingOpponentRank: number;
+  UpcomingOpponentPositionRank: number;
+  UpcomingFanDuelSalary: number;
+  UpcomingDraftKingsSalary: number;
+  UpcomingYahooSalary: number;
+  PrimaryColor: string;
+  SecondaryColor: string;
+  TertiaryColor: string;
+  QuaternaryColor: string;
+  WikipediaLogoUrl: string;
+  WikipediaWordMarkUrl: string;
+  GlobalTeamID: number;
+  DraftKingsName: string;
+  DraftKingsPlayerID: number;
+  FanDuelName: string;
+  FanDuelPlayerID: number;
+  FantasyDraftName: string;
+  FantasyDraftPlayerID: number;
+  YahooName: string;
+  YahooPlayerID: number;
+  AverageDraftPosition2QB: number;
+  AverageDraftPositionDynasty: number;
+  StadiumDetails: StadiumDetails;
+};
+
+type StadiumDetails = {
+  StadiumID: number;
+  Name: string;
+  City: string;
+  State: string;
+  Country: string;
+  Capacity: number;
+  PlayingSurface: string;
+  GeoLat: number;
+  GeoLong: number;
+  Type: string;
+};
+
+export type Player = {
+  PlayerID: number;
+  Team: string | null;
+  Number: number | null;
+  FirstName: string;
+  LastName: string;
+  Position: string;
+  Status: string;
+  Height: string;
+  Weight: number;
+  BirthDate: string;
+  College: string;
+  Experience: number;
+  FantasyPosition: string;
+  Active: boolean;
+  PositionCategory: string;
+  Name: string;
+  Age: number;
+  ShortName: string;
+  HeightFeet: number;
+  HeightInches: number;
+  TeamID: number | null;
+  GlobalTeamID: number;
+  UsaTodayPlayerID: number;
+  UsaTodayHeadshotUrl: string;
+  UsaTodayHeadshotNoBackgroundUrl: string;
+  UsaTodayHeadshotUpdated: string;
+  UsaTodayHeadshotNoBackgroundUpdated: string;
+};
+
+export type APIResponse<T = NonNullable<unknown>> =
+  | { success: true; data: T }
+  | { success: false; error: string; status: number };
