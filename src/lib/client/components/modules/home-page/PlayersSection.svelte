@@ -6,6 +6,9 @@
   } from "@client/components/modules/home-page/home-page.svelte";
   import type { Player, APIResponse } from "$lib/types";
   import type { Attachment } from "svelte/attachments";
+  import { getAllTeamsArrayContext } from "$lib/context";
+
+  const allTeamsArrray = getAllTeamsArrayContext();
 
   let section: HTMLElement | undefined = undefined;
 
@@ -18,6 +21,18 @@
 
   const myAttachment: Attachment = function () {
     searchInputValue = getInitialPlayerSearchInputValue();
+  };
+
+  const getHoverColor = function (player: Player): "AFC" | "NFC" | false {
+    if (allTeamsArrray.find((team) => team.TeamID === player.TeamID)?.Conference === "AFC") {
+      return "AFC";
+    }
+
+    if (allTeamsArrray.find((team) => team.TeamID === player.TeamID)?.Conference === "NFC") {
+      return "NFC";
+    }
+
+    return false;
   };
 
   const onSubmit = async function (
@@ -72,7 +87,19 @@
         <p>Loading...</p>
       {:then results}
         {#each results as player (player.PlayerID)}
-          <p>{player.Name}</p>
+          <div>
+            <a
+              href={`/player/${player.PlayerID}`}
+              class={{
+                "text-stone-300": true,
+                "hover:text-afc": getHoverColor(player) === "AFC",
+                "hover:text-nfc": getHoverColor(player) === "NFC",
+                "hover:text-stone-400": !getHoverColor(player),
+              }}
+            >
+              {player.Name}</a
+            >
+          </div>
         {/each}
       {:catch error}
         <p>{(error as Error).message}</p>
