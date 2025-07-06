@@ -3,7 +3,6 @@ import { getAllTeamsFromSportsdataIOAPI, getAllAvailablePlayersFromSportsdataIOA
 import type { Team, Player } from "$lib/types";
 
 export const load: LayoutServerLoad = async function ({ setHeaders, url }) {
-  console.log(url.searchParams);
   try {
     const promises = Promise.all([getAllTeamsFromSportsdataIOAPI(), getAllAvailablePlayersFromSportsdataIOAPI()]);
     const [allTeams, allPlayers] = await promises;

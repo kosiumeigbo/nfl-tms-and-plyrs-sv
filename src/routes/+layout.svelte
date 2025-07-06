@@ -5,8 +5,6 @@
 
   let { children, data }: LayoutProps = $props();
 
-  console.log(data.allTeams);
-  console.log(data.allPlayers);
   setAllTeamsArrayContext(data.allTeams);
   setAllPlayersArrayContext(data.allPlayers);
 </script>
