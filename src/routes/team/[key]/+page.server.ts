@@ -11,7 +11,5 @@ export const load: PageServerLoad = async function ({ params, parent }) {
   }
 
   const teamPlayers = allPlayers.filter((player) => player.Team === key);
-  console.log("Team is: ", team);
-  console.log("Players are: ", teamPlayers);
   return { team, teamPlayers };
 };
