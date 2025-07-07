@@ -5,13 +5,6 @@
 
   let { data }: PageProps = $props();
   const { team, teamPlayers } = data;
-
-  /* const getPageTitle = function () {
-    if (!team) {
-      return `${MAIN_TITLE} | Team Page`;
-    }
-    return `${MAIN_TITLE} | ${team.Key} | ${team.FullName}`;
-  }; */
 </script>
 
 <svelte:head>

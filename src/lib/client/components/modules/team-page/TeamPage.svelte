@@ -4,6 +4,7 @@
   import TeamPlayersSection from "@client/components/modules/team-page/TeamPlayersSection.svelte";
 
   let { team, teamPlayers }: { team: Team; teamPlayers: Player[] } = $props();
+  console.log(team);
 </script>
 
 <Header {team} />
