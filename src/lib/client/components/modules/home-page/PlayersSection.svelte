@@ -24,7 +24,7 @@
     searchInputValue = getInitialPlayerSearchInputValue();
   };
 
-  const getHoverColor = function (player: Player): "AFC" | "NFC" | false {
+  const getTextColor = function (player: Player): "AFC" | "NFC" | false {
     if (allTeamsArrray.find((team) => team.TeamID === player.TeamID)?.Conference === "AFC") {
       return "AFC";
     }
@@ -59,7 +59,7 @@
 
 <section
   bind:this={section}
-  class={{ "hidden": isNotDisplayed, "block": !isNotDisplayed, "font-georgia min-h-svh py-10": true }}
+  class={{ "hidden": isNotDisplayed, "block": !isNotDisplayed, "font-display min-h-svh py-10": true }}
   {@attach myAttachment}
 >
   <div class="custom-container">
@@ -101,13 +101,13 @@
             href={`/player/${player.PlayerID}`}
             class={{
               "text-stone-300": true,
-              "hover:text-afc": getHoverColor(player) === "AFC",
-              "hover:text-nfc": getHoverColor(player) === "NFC",
-              "hover:text-stone-400": !getHoverColor(player),
+              "hover:text-afc": getTextColor(player) === "AFC",
+              "hover:text-nfc": getTextColor(player) === "NFC",
+              "hover:text-stone-400": !getTextColor(player),
             }}
           >
-            {player.Name}</a
-          >
+            {player.Name}
+          </a>
         </div>
       {/each}
     {/if}
