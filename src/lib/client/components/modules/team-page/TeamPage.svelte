@@ -1,8 +1,9 @@
 <script lang="ts">
-  import type { Team } from "$lib/types";
-  let { teamObj }: { teamObj: Team } = $props();
+  import type { Team, Player } from "$lib/types";
+  import Header from "@client/components/modules/team-page/Header.svelte";
+
+  let { team, teamPlayers }: { team: Team; teamPlayers: Player[] } = $props();
+  console.log(teamPlayers);
 </script>
 
-<section>
-  {JSON.stringify(teamObj)}
-</section>
+<Header {team} />

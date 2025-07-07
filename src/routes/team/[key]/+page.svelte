@@ -6,16 +6,16 @@
   let { data }: PageProps = $props();
   const { team, teamPlayers } = data;
 
-  const getPageTitle = function () {
+  /* const getPageTitle = function () {
     if (!team) {
       return `${MAIN_TITLE} | Team Page`;
     }
     return `${MAIN_TITLE} | ${team.Key} | ${team.FullName}`;
-  };
+  }; */
 </script>
 
 <svelte:head>
-  <title>{getPageTitle()}</title>
+  <title>{`${MAIN_TITLE} | ${team.Key} | ${team.FullName}`}</title>
 </svelte:head>
 
 <TeamPage {team} {teamPlayers} />
