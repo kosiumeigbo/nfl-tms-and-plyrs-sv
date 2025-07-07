@@ -11,8 +11,8 @@
     return `#${team.SecondaryColor}`;
   };
 
-  let primaryColor = $state(getPrimaryColor(team));
-  let secondaryColor = $state(getSecondaryColor(team));
+  const primaryColor = getPrimaryColor(team);
+  const secondaryColor = getSecondaryColor(team);
 </script>
 
 <header class="h-screen w-full">
