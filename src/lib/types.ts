@@ -44,7 +44,7 @@ export type Team = {
   StadiumDetails: StadiumDetails;
 };
 
-type StadiumDetails = {
+export type StadiumDetails = {
   StadiumID: number;
   Name: string;
   City: string;
