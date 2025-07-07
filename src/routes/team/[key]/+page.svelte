@@ -4,13 +4,13 @@
   import { MAIN_TITLE } from "$lib/constants";
 
   let { data }: PageProps = $props();
-  const { teamObj } = data;
+  const { team, teamPlayers } = data;
 
   const getPageTitle = function () {
-    if (!teamObj) {
+    if (!team) {
       return `${MAIN_TITLE} | Team Page`;
     }
-    return `${MAIN_TITLE} | ${teamObj.Key} | ${teamObj.FullName}`;
+    return `${MAIN_TITLE} | ${team.Key} | ${team.FullName}`;
   };
 </script>
 
@@ -18,4 +18,4 @@
   <title>{getPageTitle()}</title>
 </svelte:head>
 
-<TeamPage {teamObj} />
+<TeamPage {team} {teamPlayers} />
