@@ -21,7 +21,7 @@
 
 <section class="font-display mt-10">
   <div class="custom-container">
-    <h1 class="text-center text-5xl">Team Roster</h1>
+    <h1 class="text-center text-5xl">Roster</h1>
     {#if teamPlayers.length === 0}
       <p>No players on this team</p>
     {:else}
