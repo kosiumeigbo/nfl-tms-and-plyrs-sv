@@ -14,6 +14,6 @@ export const GET: RequestHandler = async ({ url, setHeaders }) => {
 
   const stadiumWeatherData = await getStadiumWeatherFromWeatherAPI({ lat, long });
 
-  setHeaders({ "cache-control": "private, max-age=3600" });
+  setHeaders({ "cache-control": "private, max-age=900" });
   return json(stadiumWeatherData);
 };
