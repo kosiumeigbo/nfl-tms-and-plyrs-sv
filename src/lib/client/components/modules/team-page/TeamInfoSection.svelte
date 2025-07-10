@@ -32,71 +32,71 @@
 {/snippet}
 
 {#snippet coachingStaffAndPlaySchemesSection()}
-  <div class="w-full">
-    <h1 class="text-center text-5xl">Coaching Staff and Play Schemes</h1>
-    <div class="grid grid-cols-3">
+  <div class="mb-20 w-full">
+    <h1 class="mb-6 text-center text-5xl">Coaching Staff and Play Schemes</h1>
+    <div class="grid grid-cols-3 gap-y-5">
       <div>
-        <p class="uppercase">Head Coach</p>
-        <p>{team.HeadCoach}</p>
+        <p class="text-2xl uppercase">Head Coach</p>
+        <p class="text-2xl">{team.HeadCoach}</p>
       </div>
       <div>
-        <p class="uppercase">Offensive Coordinator</p>
-        <p>{team.OffensiveCoordinator}</p>
+        <p class="text-2xl uppercase">Offensive Coordinator</p>
+        <p class="text-2xl">{team.OffensiveCoordinator}</p>
       </div>
       <div>
-        <p class="uppercase">Defensive Coordinator</p>
-        <p>{team.DefensiveCoordinator}</p>
+        <p class="text-2xl uppercase">Defensive Coordinator</p>
+        <p class="text-2xl">{team.DefensiveCoordinator}</p>
       </div>
       <div>
-        <p class="uppercase">Special Teams Coach</p>
-        <p>{team.SpecialTeamsCoach}</p>
+        <p class="text-2xl uppercase">Special Teams Coach</p>
+        <p class="text-2xl">{team.SpecialTeamsCoach}</p>
       </div>
       <div>
-        <p class="uppercase">Defensive Scheme</p>
-        <p>{team.DefensiveScheme}</p>
+        <p class="text-2xl uppercase">Defensive Scheme</p>
+        <p class="text-2xl">{team.DefensiveScheme}</p>
       </div>
       <div>
-        <p class="uppercase">Offensive Scheme</p>
-        <p>{team.OffensiveScheme}</p>
+        <p class="text-2xl uppercase">Offensive Scheme</p>
+        <p class="text-2xl">{team.OffensiveScheme}</p>
       </div>
     </div>
   </div>
 {/snippet}
 
 {#snippet stadiumDetailsSection()}
-  <div class="w-full">
-    <h1 class="text-center text-5xl">Stadium Details</h1>
-    <div class="w-full"><img src={`/stadiums/${team.Key}.jpg`} alt={`Stadium photo for ${team.FullName}`} /></div>
-    <div class="grid grid-cols-3">
+  <div class="mb-20 w-full">
+    <h1 class="mb-5 text-center text-5xl">Stadium Details</h1>
+    <div class="mb-5 w-full"><img src={`/stadiums/${team.Key}.jpg`} alt={`Stadium photo for ${team.FullName}`} /></div>
+    <div class="grid grid-cols-3 gap-y-5">
       <div>
-        <p class="uppercase">Name</p>
-        <p>{StadiumDetails.Name}</p>
+        <p class="text-2xl uppercase">Name</p>
+        <p class="text-2xl">{StadiumDetails.Name}</p>
       </div>
       <div>
-        <p class="uppercase">Capacity</p>
-        <p>{StadiumDetails.Capacity}</p>
+        <p class="text-2xl uppercase">Capacity</p>
+        <p class="text-2xl">{StadiumDetails.Capacity}</p>
       </div>
       <div>
-        <p class="uppercase">City</p>
-        <p>{StadiumDetails.City}</p>
+        <p class="text-2xl uppercase">City</p>
+        <p class="text-2xl">{StadiumDetails.City}</p>
       </div>
       <div>
-        <p class="uppercase">State</p>
-        <p>{@render getRegionStateText()}</p>
+        <p class="text-2xl uppercase">State</p>
+        <p class="text-2xl">{@render getRegionStateText()}</p>
       </div>
       <div>
-        <p class="uppercase">Playing Surface</p>
-        <p>{StadiumDetails.PlayingSurface}</p>
+        <p class="text-2xl uppercase">Playing Surface</p>
+        <p class="text-2xl">{StadiumDetails.PlayingSurface}</p>
       </div>
       <div>
-        <p class="uppercase">Current Weather Details</p>
-        <p>{@render getCurrentWeatherDetailsText()}</p>
+        <p class="text-2xl uppercase">Current Weather Details</p>
+        <p class="text-2xl">{@render getCurrentWeatherDetailsText()}</p>
       </div>
     </div>
   </div>
 {/snippet}
 
-<section class="w-full">
+<section class="my-10 w-full pt-10">
   <div class="custom-container font-display">
     {@render coachingStaffAndPlaySchemesSection()}
     {@render stadiumDetailsSection()}
