@@ -21,24 +21,26 @@
 
 <section class="font-display mt-10">
   <div class="custom-container">
-    <h1 class="text-center text-5xl">Roster</h1>
+    <h1 class="mb-5 text-center text-5xl">Roster</h1>
     {#if teamPlayers.length === 0}
       <p>No players on this team</p>
     {:else}
-      {#each teamPlayers as player (player.PlayerID)}
-        <div>
-          <a
-            href={`/player/${player.PlayerID}`}
-            class={{
-              "text-stone-400": true,
-              "hover:text-afc": getTextColor(player) === "AFC",
-              "hover:text-nfc": getTextColor(player) === "NFC",
-            }}
-          >
-            {player.Name}
-          </a>
-        </div>
-      {/each}
+      <div class="grid grid-cols-4 gap-y-3">
+        {#each teamPlayers as player (player.PlayerID)}
+          <div>
+            <a
+              href={`/player/${player.PlayerID}`}
+              class={{
+                "text-xl text-stone-400": true,
+                "hover:text-afc": getTextColor(player) === "AFC",
+                "hover:text-nfc": getTextColor(player) === "NFC",
+              }}
+            >
+              {player.Name}
+            </a>
+          </div>
+        {/each}
+      </div>
     {/if}
   </div>
 </section>
