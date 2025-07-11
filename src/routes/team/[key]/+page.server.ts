@@ -1,9 +1,15 @@
-import { getAllTeamsFromSportsdataIOAPI } from "$lib/server";
+import { error } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
-export const load: PageServerLoad = async function ({ params, setHeaders }) {
-  const allTeamsArray = await getAllTeamsFromSportsdataIOAPI();
-  const teamObj = allTeamsArray.find((tm) => tm.Key === params.key);
-  setHeaders({ "cache-control": "private, max-age=604800" });
-  return { teamObj };
+export const load: PageServerLoad = async function ({ params, parent }) {
+  const { key } = params;
+  const { allTeams, allPlayers } = await parent();
+  const team = allTeams.find((team) => team.Key === key);
+
+  if (!team) {
+    error(400, "Something is wrong as we can't find a team with this key");
+  }
+
+  const teamPlayers = allPlayers.filter((player) => player.Team === key);
+  return { team, teamPlayers };
 };
