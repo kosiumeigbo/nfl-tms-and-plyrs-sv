@@ -16,7 +16,7 @@
 </script>
 
 <header class="w-full">
-  <section class="relative h-72 w-full border-b-2 border-b-black">
+  <section class="relative h-40 w-full border-b-2 border-b-black sm:h-56 md:h-72">
     <div class="absolute top-0 left-0 -z-10 grid h-full w-full grid-cols-2">
       <div class="bg-white"></div>
       <div class="grid grid-cols-[1fr_4fr]">
@@ -28,8 +28,8 @@
       <div class="custom-container">
         <div class="grid h-full w-full grid-cols-2">
           <div class="font-display flex flex-col items-start justify-center">
-            <p class="text-4xl">{team.FullName}</p>
-            <p class="text-xl">{team.Conference} {team.Division}</p>
+            <p class="text-2xl sm:text-3xl md:text-4xl">{team.FullName}</p>
+            <p class="text-base sm:text-lg md:text-xl">{team.Conference} {team.Division}</p>
           </div>
           <div>
             <div class="flex h-full w-full items-center justify-center">
