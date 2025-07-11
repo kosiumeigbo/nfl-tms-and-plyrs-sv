@@ -65,7 +65,7 @@
 
 {#snippet stadiumDetailsSection()}
   <div class="mb-20 w-full">
-    <h1 class="mb-5 text-center text-5xl">Stadium Details</h1>
+    <h1 class="mb-6 text-center text-3xl md:text-4xl lg:text-5xl">Stadium Details</h1>
     <div class="mb-5 flex w-full justify-center">
       <img src={`/stadiums/${team.Key}.jpg`} alt={`Stadium photo for ${team.FullName}`} />
     </div>
