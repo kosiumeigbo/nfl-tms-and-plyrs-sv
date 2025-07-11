@@ -33,31 +33,31 @@
 
 {#snippet coachingStaffAndPlaySchemesSection()}
   <div class="mb-20 w-full">
-    <h1 class="mb-6 text-center text-5xl">Coaching Staff and Play Schemes</h1>
-    <div class="grid grid-cols-3 gap-y-5">
-      <div>
-        <p class="text-2xl uppercase">Head Coach</p>
-        <p class="text-xl">{team.HeadCoach}</p>
+    <h1 class="mb-6 text-center text-3xl md:text-4xl lg:text-5xl">Coaching Staff and Play Schemes</h1>
+    <div class="xs:grid-cols-2 grid grid-cols-1 gap-y-5 md:grid-cols-3">
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Head Coach</p>
+        <p class="text-base md:text-lg lg:text-xl">{team.HeadCoach}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">Offensive Coordinator</p>
-        <p class="text-xl">{team.OffensiveCoordinator}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Offensive Coordinator</p>
+        <p class="text-base md:text-lg lg:text-xl">{team.OffensiveCoordinator}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">Defensive Coordinator</p>
-        <p class="text-xl">{team.DefensiveCoordinator}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Defensive Coordinator</p>
+        <p class="text-base md:text-lg lg:text-xl">{team.DefensiveCoordinator}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">Special Teams Coach</p>
-        <p class="text-xl">{team.SpecialTeamsCoach}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Special Teams Coach</p>
+        <p class="text-base md:text-lg lg:text-xl">{team.SpecialTeamsCoach}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">Defensive Scheme</p>
-        <p class="text-xl">{team.DefensiveScheme}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Defensive Scheme</p>
+        <p class="text-base md:text-lg lg:text-xl">{team.DefensiveScheme}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">Offensive Scheme</p>
-        <p class="text-xl">{team.OffensiveScheme}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Offensive Scheme</p>
+        <p class="text-base md:text-lg lg:text-xl">{team.OffensiveScheme}</p>
       </div>
     </div>
   </div>
@@ -69,30 +69,30 @@
     <div class="mb-5 flex w-full justify-center">
       <img src={`/stadiums/${team.Key}.jpg`} alt={`Stadium photo for ${team.FullName}`} />
     </div>
-    <div class="grid grid-cols-3 gap-y-5">
-      <div>
-        <p class="text-2xl uppercase">Name</p>
-        <p class="text-xl">{StadiumDetails.Name}</p>
+    <div class="xs:grid-cols-2 grid grid-cols-1 gap-y-5 md:grid-cols-3">
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Name</p>
+        <p class="text-base md:text-lg lg:text-xl">{StadiumDetails.Name}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">Capacity</p>
-        <p class="text-xl">{StadiumDetails.Capacity}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Capacity</p>
+        <p class="text-base md:text-lg lg:text-xl">{StadiumDetails.Capacity}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">City</p>
-        <p class="text-xl">{StadiumDetails.City}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">City</p>
+        <p class="text-base md:text-lg lg:text-xl">{StadiumDetails.City}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">State</p>
-        <p class="text-xl">{@render getRegionStateText()}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">State</p>
+        <p class="text-base md:text-lg lg:text-xl">{@render getRegionStateText()}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">Playing Surface</p>
-        <p class="text-xl">{StadiumDetails.PlayingSurface}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Playing Surface</p>
+        <p class="text-base md:text-lg lg:text-xl">{StadiumDetails.PlayingSurface}</p>
       </div>
-      <div>
-        <p class="text-2xl uppercase">Current Weather Details</p>
-        <p class="text-xl">{@render getCurrentWeatherDetailsText()}</p>
+      <div class="xs:block flex flex-col items-center justify-center">
+        <p class="text-lg uppercase md:text-xl lg:text-2xl">Current Weather Details</p>
+        <p class="text-base md:text-lg lg:text-xl">{@render getCurrentWeatherDetailsText()}</p>
       </div>
     </div>
   </div>
