@@ -67,7 +67,7 @@
   <div class="mb-20 w-full">
     <h1 class="mb-6 text-center text-3xl md:text-4xl lg:text-5xl">Stadium Details</h1>
     <div class="mb-5 flex w-full justify-center">
-      <img src={`/stadiums/${team.Key}.jpg`} alt={`Stadium photo for ${team.FullName}`} />
+      <img src={`/stadiums/${team.Key}.jpg`} alt={`Stadium photo for ${team.FullName}`} class="w-full max-w-[60rem]" />
     </div>
     <div class="xs:grid-cols-2 grid grid-cols-1 gap-y-5 md:grid-cols-3">
       <div class="xs:block flex flex-col items-center justify-center">
