@@ -17,6 +17,18 @@
 
   const primaryColor = getPrimaryColor(team);
   const secondaryColor = getSecondaryColor(team);
+
+  const getTextColor = function (team: Team): "AFC" | "NFC" | false {
+    if (team.Conference === "AFC") {
+      return "AFC";
+    }
+
+    if (team.Conference === "NFC") {
+      return "NFC";
+    }
+
+    return false;
+  };
 </script>
 
 <header class="w-full">
@@ -31,10 +43,10 @@
     <div class="h-full w-full">
       <div class="custom-container">
         <div class="grid h-full w-full grid-cols-2 grid-rows-1">
-          <div class="font-display flex flex-col items-start justify-start pt-10 pl-5">
-            <div class="text-lg sm:text-xl md:text-2xl"><span>{player.Name}</span></div>
-            <div class="text-sm sm:text-base md:text-lg">
-              <div>
+          <div class="font-display flex flex-col items-start justify-start pt-5 pl-2 sm:pt-10 sm:pl-5">
+            <div class="xs:text-lg text-base leading-none sm:text-xl md:text-2xl"><span>{player.Name}</span></div>
+            <div class="xs:text-sm mt-2 text-xs sm:mt-4 sm:text-base md:text-lg">
+              <div class="xs:-mb-2 mb-0">
                 <span>{player.Position}</span>
                 &#8226;
                 <span>
@@ -42,10 +54,18 @@
                 </span>
               </div>
               {#if team}
-                <div><a href={`/team/${team.Key}`}>{team.FullName}</a></div>
+                <div
+                  class={{
+                    "text-stone-400": true,
+                    "hover:text-afc": getTextColor(team) === "AFC",
+                    "hover:text-nfc": getTextColor(team) === "NFC",
+                  }}
+                >
+                  <a href={`/team/${team.Key}`}>{team.FullName}</a>
+                </div>
               {/if}
             </div>
-            <div class="text-sm text-white uppercase sm:text-base md:text-lg">
+            <div class="xs:text-sm xs:mt-5 mt-2 text-xs text-white uppercase sm:text-base md:text-lg">
               <span
                 style:background-color={player.Status.toLowerCase() === "active" ? "#0eb70e" : "#c5350d"}
                 class="rounded-lg px-2 py-1"
