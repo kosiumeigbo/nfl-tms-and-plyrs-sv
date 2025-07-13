@@ -20,7 +20,7 @@
 </script>
 
 <header class="w-full">
-  <section class="relative h-40 w-full border-b-2 border-b-black py-10 sm:h-56 md:h-72">
+  <section class="relative h-40 w-full border-b-2 border-b-black sm:h-56 md:h-72">
     <div class="absolute top-0 left-0 -z-10 grid h-full w-full grid-cols-2">
       <div class="bg-white"></div>
       <div class="grid grid-cols-[1fr_4fr]">
@@ -30,11 +30,17 @@
     </div>
     <div class="h-full w-full">
       <div class="custom-container">
-        <div class="grid h-full w-full grid-cols-2">
-          <div class="font-display flex flex-col items-start justify-between">
-            <p class="text-2xl sm:text-3xl md:text-4xl">{player.Name}</p>
-            <p class="text-base sm:text-lg md:text-xl">{player.Position}</p>
-            <p class="text-base sm:text-lg md:text-xl">{player.Height}</p>
+        <div class="grid h-full w-full grid-cols-2 grid-rows-1">
+          <div class="font-display flex flex-col items-start justify-start pt-10 pl-5">
+            <div class="text-lg sm:text-xl md:text-2xl"><span>{player.Name}</span></div>
+            <div class="text-sm sm:text-base md:text-lg">
+              <span>{player.Position}</span>
+              &#8226;
+              <span>
+                #{#if player.Number}{player.Number}{:else}00{/if}
+              </span>
+            </div>
+            <div class="text-sm sm:text-base md:text-lg"><p>{player.Height}</p></div>
           </div>
         </div>
       </div>
