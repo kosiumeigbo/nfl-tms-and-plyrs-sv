@@ -34,13 +34,25 @@
           <div class="font-display flex flex-col items-start justify-start pt-10 pl-5">
             <div class="text-lg sm:text-xl md:text-2xl"><span>{player.Name}</span></div>
             <div class="text-sm sm:text-base md:text-lg">
-              <span>{player.Position}</span>
-              &#8226;
-              <span>
-                #{#if player.Number}{player.Number}{:else}00{/if}
+              <div>
+                <span>{player.Position}</span>
+                &#8226;
+                <span>
+                  #{#if player.Number}{player.Number}{:else}00{/if}
+                </span>
+              </div>
+              {#if team}
+                <div><a href={`/team/${team.Key}`}>{team.FullName}</a></div>
+              {/if}
+            </div>
+            <div class="text-sm text-white uppercase sm:text-base md:text-lg">
+              <span
+                style:background-color={player.Status.toLowerCase() === "active" ? "#0eb70e" : "#c5350d"}
+                class="rounded-lg px-2 py-1"
+              >
+                {player.Status}
               </span>
             </div>
-            <div class="text-sm sm:text-base md:text-lg"><p>{player.Height}</p></div>
           </div>
         </div>
       </div>
