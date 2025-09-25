@@ -1,9 +1,8 @@
-import { render, screen } from "@testing-library/svelte";
-import type { Player, Team } from "$lib/types";
-import { vi } from "vitest";
+<script lang="ts">
+  import { setAllPlayersArrayContext, setAllTeamsArrayContext } from "$lib/context";
+  import HomePage from "./HomePage.svelte";
 
-vi.mock("$lib/context", () => ({
-  getAllPlayersArrayContext: (): Player[] => [
+  setAllPlayersArrayContext([
     {
       PlayerID: 549,
       Team: "BUF",
@@ -33,8 +32,8 @@ vi.mock("$lib/context", () => ({
       UsaTodayHeadshotUpdated: "2024-08-29T08:52:35",
       UsaTodayHeadshotNoBackgroundUpdated: "2024-08-29T08:52:28",
     },
-  ],
-  getAllTeamsArrayContext: (): Team[] => [
+  ]);
+  setAllTeamsArrayContext([
     {
       Key: "ARI",
       TeamID: 1,
@@ -91,16 +90,7 @@ vi.mock("$lib/context", () => ({
         Type: "RetractableDome",
       },
     },
-  ],
-}));
+  ]);
+</script>
 
-import Page from "./+page.svelte";
-
-describe("/+page.svelte", () => {
-  test("it renders", () => {
-    console.log("ENVIRONMENT:", typeof window);
-    render(Page);
-    screen.debug();
-    expect(screen.getByRole("button", { name: /explore teams/i })).toBeInTheDocument();
-  });
-});
+<HomePage />
