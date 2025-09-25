@@ -1,10 +1,106 @@
 import { render, screen } from "@testing-library/svelte";
+import type { Player, Team } from "$lib/types";
+import { vi } from "vitest";
+
+vi.mock("$lib/context", () => ({
+  getAllPlayersArrayContext: (): Player[] => [
+    {
+      PlayerID: 549,
+      Team: "BUF",
+      Number: 15,
+      FirstName: "Matt",
+      LastName: "Prater",
+      Position: "K",
+      Status: "Active",
+      Height: `5'10"`,
+      Weight: 175,
+      BirthDate: "1984-08-10T00:00:00",
+      College: "Central Florida",
+      Experience: 22,
+      FantasyPosition: "K",
+      Active: true,
+      PositionCategory: "ST",
+      Name: "Matt Prater",
+      Age: 41,
+      ShortName: "M.Prater",
+      HeightFeet: 5,
+      HeightInches: 10,
+      TeamID: 4,
+      GlobalTeamID: 4,
+      UsaTodayPlayerID: 8373585,
+      UsaTodayHeadshotUrl: "http://cdn.imagn.com/api/download/?imageID=24101652",
+      UsaTodayHeadshotNoBackgroundUrl: "http://cdn.imagn.com/api/download/?imageID=24101651",
+      UsaTodayHeadshotUpdated: "2024-08-29T08:52:35",
+      UsaTodayHeadshotNoBackgroundUpdated: "2024-08-29T08:52:28",
+    },
+  ],
+  getAllTeamsArrayContext: (): Team[] => [
+    {
+      Key: "ARI",
+      TeamID: 1,
+      PlayerID: 1,
+      City: "Arizona",
+      Name: "Cardinals",
+      Conference: "NFC",
+      Division: "West",
+      FullName: "Arizona Cardinals",
+      StadiumID: 29,
+      ByeWeek: 8,
+      AverageDraftPosition: 468.7,
+      AverageDraftPositionPPR: 349,
+      HeadCoach: "Jonathan Gannon",
+      OffensiveCoordinator: "Drew Petzing",
+      DefensiveCoordinator: "Nick Rallis",
+      SpecialTeamsCoach: "Jeff Rodgers",
+      OffensiveScheme: "3WR",
+      DefensiveScheme: "3-4",
+      UpcomingSalary: 4889,
+      UpcomingOpponent: "Scrambled",
+      UpcomingOpponentRank: 17,
+      UpcomingOpponentPositionRank: 17,
+      UpcomingFanDuelSalary: 5901,
+      UpcomingDraftKingsSalary: 4889,
+      UpcomingYahooSalary: 24,
+      PrimaryColor: "97233F",
+      SecondaryColor: "FFFFFF",
+      TertiaryColor: "000000",
+      QuaternaryColor: "A5ACAF",
+      WikipediaLogoUrl: "https://upload.wikimedia.org/wikipedia/en/7/72/Arizona_Cardinals_logo.svg",
+      WikipediaWordMarkUrl: "https://upload.wikimedia.org/wikipedia/commons/0/04/Arizona_Cardinals_wordmark.svg",
+      GlobalTeamID: 1,
+      DraftKingsName: "Cardinals ",
+      DraftKingsPlayerID: 355,
+      FanDuelName: "Arizona Cardinals",
+      FanDuelPlayerID: 12546,
+      FantasyDraftName: "Arizona Cardinals",
+      FantasyDraftPlayerID: 355,
+      YahooName: "Arizona Cardinals",
+      YahooPlayerID: 100022,
+      AverageDraftPosition2QB: 270.3,
+      AverageDraftPositionDynasty: 259.6,
+      StadiumDetails: {
+        StadiumID: 29,
+        Name: "State Farm Stadium",
+        City: "Glendale",
+        State: "AZ",
+        Country: "USA",
+        Capacity: 63400,
+        PlayingSurface: "Grass",
+        GeoLat: 33.528,
+        GeoLong: -112.263036,
+        Type: "RetractableDome",
+      },
+    },
+  ],
+}));
+
 import Page from "./+page.svelte";
 
 describe("/+page.svelte", () => {
-  test("should render h1", () => {
+  test("it renders", () => {
     console.log("ENVIRONMENT:", typeof window);
     render(Page);
+    screen.debug();
     expect(screen.getByRole("button", { name: /explore teams/i })).toBeInTheDocument();
   });
 });
