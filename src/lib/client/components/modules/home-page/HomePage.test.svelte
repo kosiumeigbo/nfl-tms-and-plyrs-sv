@@ -1,5 +1,6 @@
 <script lang="ts">
   import { setAllPlayersArrayContext, setAllTeamsArrayContext } from "$lib/context";
+  import HomePage from "./HomePage.svelte";
 
   setAllPlayersArrayContext([
     {
@@ -91,3 +92,5 @@
     },
   ]);
 </script>
+
+<HomePage />
