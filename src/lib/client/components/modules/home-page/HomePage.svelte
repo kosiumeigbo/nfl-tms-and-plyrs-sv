@@ -6,7 +6,7 @@
   import { getAllPlayersArrayContext, getAllTeamsArrayContext } from "$lib/context";
   const allPlayersArray = getAllPlayersArrayContext();
   const allTeamsArray = getAllTeamsArrayContext();
-  const headerTabState = getHeaderTabState();
+  const headerTabState = $derived(getHeaderTabState());
 </script>
 
 <Header />
